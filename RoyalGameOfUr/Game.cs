@@ -12,12 +12,31 @@ namespace Royal_Game_of_Ur
         // House IDs of lotus Tiles | Lotus Lands 4-8-14
         private int[] lotusIds = new int[] { 4, 8, 14 };
 
+        // Initialize 2 new players
+        public Player PlayerOne { get; private set; }
+        public Player PlayerTwo { get; private set; }
+        public Player CurrentPlayer { get; private set; }
+
+        private Renderer render;
+
+        private Dice dice;
+
         // Create the game board
         public Tile[,] Board { get; private set; }
 
         public void GameLoop()
         {
             InitializeMap();
+
+            // Initialize a new bool to determin if the player has landed on a lotus land
+            bool lotusLand = false;
+
+            render.RenderBoard();
+
+            CurrentPlayer = PlayerOne;
+
+            // Save players input troughout the game
+            ConsoleKey playerInput;
         }
 
         private void InitializeMap()
