@@ -1,18 +1,25 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.26124.0
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30114.105
 MinimumVisualStudioVersion = 15.0.26124.0
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Royal Game Of Ur", "Royal Game Of Ur\Royal Game Of Ur.csproj", "{D9950527-DA12-4CE9-96C7-0E3BF121FA44}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
-		Debug|x64 = Debug|x64
-		Debug|x86 = Debug|x86
 		Release|Any CPU = Release|Any CPU
-		Release|x64 = Release|x64
-		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D9950527-DA12-4CE9-96C7-0E3BF121FA44}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D9950527-DA12-4CE9-96C7-0E3BF121FA44}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D9950527-DA12-4CE9-96C7-0E3BF121FA44}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D9950527-DA12-4CE9-96C7-0E3BF121FA44}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0DB192DE-860D-4570-AF86-313313F8A10B}
 	EndGlobalSection
 EndGlobal
