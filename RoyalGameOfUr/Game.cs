@@ -20,7 +20,7 @@ namespace Royal_Game_of_Ur
             InitializeMap();
         }
 
-            private void InitializeMap()
+        private void InitializeMap()
         {
             for (int y = 0; y < MapHeight; y++)
             {

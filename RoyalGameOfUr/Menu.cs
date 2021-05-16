@@ -6,7 +6,6 @@ namespace Royal_Game_of_Ur
 {
     class Menu
     {
-
         private Game game;
 
         public Menu()
@@ -26,10 +25,10 @@ namespace Royal_Game_of_Ur
             PlayerChoice();
         }
 
+        //The choice that the player makes (Play or Quit)
         private void PlayerChoice()
         {
             ConsoleKey playerChoice;
-
             do
             {
                 playerChoice = Console.ReadKey().Key;
