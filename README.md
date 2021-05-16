@@ -32,7 +32,7 @@ About each file:
 ---
 
 ## UML Diagram
-
+![UML Diagram]](UML Diagram.jpg)
 ---
 
 ## References
