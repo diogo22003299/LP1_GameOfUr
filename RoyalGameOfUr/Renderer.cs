@@ -28,6 +28,54 @@ namespace Royal_Game_of_Ur
                 }
                 Console.WriteLine();
             }
+
+            // Render stats move to other place later!!!!!
+
+            Console.WriteLine($"\n\nTurn number {game.CurrentTurn}");
+            Console.WriteLine($"\nPlayer 1 Current Pieces: {game.PlayerOne.NumPices}");
+            Console.WriteLine($"Player 2 Current Pieces: {game.PlayerTwo.NumPices}");
         }
+
+        public void RenderChoice(List<Piece> movablePieces = null)
+        {
+            if (movablePieces == null)
+            {
+                RenderRollValue();
+
+                Console.WriteLine("\nChose a Piece to move:");
+            }
+            else
+            {
+                for (int i = 0; i < movablePieces.Count; i++)
+                {
+                    Console.WriteLine($"({i}) Piece in tile {movablePieces[i].InGameHouse}");
+                }
+            }
+        }
+
+        /// <summary>
+        /// Renders the text displaying the winner of the game
+        /// </summary>
+        public void RenderWinner()
+        {
+            Console.Clear();
+            Console.WriteLine($"!!!! Player {game.CurrentPlayer.PlayerId} Wins !!!!");
+        }
+
+        public void RenderTurn()
+        {
+            char turn = game.CurrentTurn % 2 == 0 ? '1' : '2';
+            Console.WriteLine($"\nPlayer {turn} playing. \n\n\tPress \"R\" to roll the dices...");
+        }
+
+        /// <summary>
+        /// Render the text telling the player to chose to move a piece or play a new one
+        /// </summary>
+        public void RenderPlaceOrMove() => Console.WriteLine("\n- (m) Move Piece\n- (p) Play New Piece");
+
+        /// <summary>
+        /// Render the roll value for this turn
+        /// </summary>
+        public void RenderRollValue() => Console.WriteLine("\nYou rolled a " + game.RollValue);
     }
 }
