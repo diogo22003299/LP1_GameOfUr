@@ -32,7 +32,7 @@ About each file:
 ---
 
 ## UML Diagram
-![UML Diagram]](UMLDiagram.png)
+![UML Diagram](UMLDiagram.png)
 
 ---
 
