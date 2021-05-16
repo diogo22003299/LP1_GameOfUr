@@ -48,7 +48,9 @@ namespace Royal_Game_of_Ur
             RollValue = 0;
         }
 
-
+        /// <summary>
+        /// Loops the game until a Win condition is met
+        /// </summary>
         public void GameLoop()
         {
             InitializeMap();
@@ -62,6 +64,86 @@ namespace Royal_Game_of_Ur
 
             // Save players input troughout the game
             ConsoleKey playerInput;
+
+            do
+            {
+                render.RenderTurn();
+
+                do
+                {
+                    playerInput = Console.ReadKey(true).Key;
+
+                } while (playerInput != ConsoleKey.R);
+
+                RollValue = dice.RollDice();
+                render.RenderRollValue();
+
+                if (RollValue != 0)
+                {
+                    // Chose here if he wants to play a new piece or move one he has in game
+                    // (Check if the rollValue allows for the movement before asking (Don't ask if not...))
+                    // Chose move pieces or place new one
+                    if (CurrentPlayer.InGamePieces.Count != 0 && CurrentPlayer.CheckValidPlacement(RollValue))
+                    {
+                        // Give choice
+                        render.RenderPlaceOrMove();
+
+                        do
+                        {
+                            playerInput = Console.ReadKey(true).Key;
+
+                        } while (playerInput != ConsoleKey.M && playerInput != ConsoleKey.P);
+
+                        switch (playerInput)
+                        {
+                            case ConsoleKey.M:
+                                // Chose piece to move?
+                                if (CurrentPlayer.InGamePieces.Count > 1)
+                                {
+                                    lotusLand = ChoosePieceToMove();
+                                }
+                                else
+                                {
+                                    lotusLand = MovePieces(CurrentPlayer.InGamePieces[0]);
+                                }
+                                break;
+                            case ConsoleKey.P:
+                                // Place new piece
+                                lotusLand = MovePieces(CurrentPlayer.Pieces.Peek());
+                                break;
+                        }
+                    }
+                    else if (CurrentPlayer.InGamePieces.Count > 1) // Chose which piece to move
+                    {
+                        lotusLand = ChoosePieceToMove();
+                    }
+                    else
+                    {
+                        // Choses to place a new piece or move it
+                        lotusLand = MovePieces(CurrentPlayer.InGamePieces.Count != 0 ? CurrentPlayer.InGamePieces[0] : CurrentPlayer.Pieces.Peek());
+
+                        Console.ReadKey();
+                    }
+                }
+                else
+                {
+                    lotusLand = false;
+
+                    Console.ReadKey();
+                }
+
+                // Render board
+                render.RenderBoard();
+
+                // Update turn
+                if (!lotusLand)
+                {
+                    CurrentTurn++;
+                    CurrentPlayer = CurrentTurn % 2 == 0 ? PlayerOne : PlayerTwo;
+                }
+            } while (CurrentPlayer.NumPices != 0);
+
+            render.RenderWinner();
         }
 
         /// <summary>
@@ -106,6 +188,11 @@ namespace Royal_Game_of_Ur
             return MovePieces(movablePieces[userInput]);
         }
 
+        /// <summary>
+        /// Moves the pieces on the board
+        /// </summary>
+        /// <param name="pieceToMove">The piece whe're moving</param>
+        /// <returns>If the piece was moved on to a lotus tile</returns>
         private bool MovePieces(Piece pieceToMove)
         {
             if (pieceToMove.InGameHouse + RollValue > 14)
