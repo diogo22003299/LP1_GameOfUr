@@ -4,6 +4,9 @@ using System.Text;
 
 namespace Royal_Game_of_Ur
 {
+    /// <summary>
+    /// This is beggining menu of the game
+    /// </summary>
     class Menu
     {
         private Game game;

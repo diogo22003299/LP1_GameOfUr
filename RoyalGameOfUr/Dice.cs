@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.Text;
 
 namespace Royal_Game_of_Ur
-{
+{   /// <summary>
+    /// 
+    /// </summary>
     class Dice
     {
-        // Declare a new Random
+        /** \brief Declare a new Random */
         private readonly Random rand;
 
         // The number of dice

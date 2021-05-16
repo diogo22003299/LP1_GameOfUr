@@ -13,6 +13,9 @@ namespace Royal_Game_of_Ur
             this.game = game;
         }
 
+        /// <summary>
+        /// This Method renders the board.
+        /// </summary>
         public void RenderBoard()
         {
             Console.Clear();
@@ -32,10 +35,14 @@ namespace Royal_Game_of_Ur
             // Render stats move to other place later!!!!!
 
             Console.WriteLine($"\n\nTurn number {game.CurrentTurn}");
-            Console.WriteLine($"\nPlayer 1 Current Pieces: {game.PlayerOne.NumPices}");
-            Console.WriteLine($"Player 2 Current Pieces: {game.PlayerTwo.NumPices}");
+            Console.WriteLine($"\nPlayer 1 Current Pieces: {game.PlayerOne.NumPieces}");
+            Console.WriteLine($"Player 2 Current Pieces: {game.PlayerTwo.NumPieces}");
         }
 
+        /// <summary>
+        /// This method renders the choices of the players
+        /// </summary>
+        /// <param name="movablePieces">The pieces that the player is able to move without going on top of another one</param>
         public void RenderChoice(List<Piece> movablePieces = null)
         {
             if (movablePieces == null)
@@ -62,6 +69,9 @@ namespace Royal_Game_of_Ur
             Console.WriteLine($"!!!! Player {game.CurrentPlayer.PlayerId} Wins !!!!");
         }
 
+        /// <summary>
+        /// Renders the turn of the current player
+        /// </summary>
         public void RenderTurn()
         {
             char turn = game.CurrentTurn % 2 == 0 ? '1' : '2';

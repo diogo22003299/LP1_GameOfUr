@@ -3,8 +3,7 @@ using System.Collections.Generic;
 
 namespace Royal_Game_of_Ur
 {
-    // Lotus Land 4-8-14
-
+    /** \brief The start of the program*/
     class Program
     {
         static void Main(string[] args)

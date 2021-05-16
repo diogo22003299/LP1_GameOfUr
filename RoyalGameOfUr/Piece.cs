@@ -4,6 +4,9 @@ using System.Text;
 
 namespace Royal_Game_of_Ur
 {
+    /// <summary>
+    /// This class defines the pieces ID and their appearance
+    /// </summary>
     public class Piece
     {
         public int PlayerId { get; private set; }

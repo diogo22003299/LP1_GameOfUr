@@ -4,22 +4,27 @@ using System.Text;
 
 namespace Royal_Game_of_Ur
 {
+    /// <summary>
+    /// This class determines the players and their statistics
+    /// </summary>
     public class Player
     {
         private const int startingPieces = 7;
-
+        /** \brief Stores the player ID*/
         public int PlayerId { get; private set; }
-        public int NumPices { get; private set; }
+        /** \brief Number of pieces left of the player*/
+        public int NumPieces { get; private set; }
+        /** \brief Statistic of the player's complete pieces*/
         public int CompletedPieces { get; set; }
-
+        /** \brief Stack of the pieces*/
         public Stack<Piece> Pieces { get; set; }
-
+        /** \brief List of the pieces*/
         public List<Piece> InGamePieces { get; set; }
 
         public Player(int playerId)
         {
             PlayerId = playerId;
-            NumPices = startingPieces;
+            NumPieces = startingPieces;
             CompletedPieces = 0;
 
             Pieces = new Stack<Piece>(startingPieces);
@@ -28,9 +33,12 @@ namespace Royal_Game_of_Ur
             InitializePieces();
         }
 
+        /// <summary>
+        /// Updates the number of pieces of each player
+        /// </summary>
         public void UpdateNumberOfPieces()
         {
-            NumPices = Pieces.Count + InGamePieces.Count;
+            NumPieces = Pieces.Count + InGamePieces.Count;
         }
 
         /// <summary>

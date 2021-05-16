@@ -2,19 +2,28 @@
 using System.Collections.Generic;
 
 namespace Royal_Game_of_Ur
-{
+{   
+    /// <summary>
+    /// The Game class contains almost everything to make the Royal Game of Ur work properly
+    /// </summary>
     class Game
     {
         // Game Consts
+        /** \brief Defines the map width*/
         public int MapWidth { get => 8; }
+        /** \brief Defines the map height*/
         public int MapHeight { get => 3; }
 
         // House IDs of lotus Tiles | Lotus Lands 4-8-14
+        /** \brief Defines the ID of the lotus tiles*/
         private int[] lotusIds = new int[] { 4, 8, 14 };
 
         // Initialize 2 new players
+        /** \brief Declares who's the player one*/
         public Player PlayerOne { get; private set; }
+        /** \brief Declares who's the player two*/
         public Player PlayerTwo { get; private set; }
+        /** \brief Declares who's the current player*/
         public Player CurrentPlayer { get; private set; }
 
         private Renderer render;
@@ -24,13 +33,13 @@ namespace Royal_Game_of_Ur
         // Declare new list to hold movablePieces
         private List<Piece> movablePieces;
 
-        // Create the game board
+        /** \brief Create the game board*/
         public Tile[,] Board { get; private set; }
 
-        // Even = Player 1 turn, Odd = Player 2 turn
+        /** \brief Even = Player 1 turn, Odd = Player 2 turn */
         public int CurrentTurn { get; private set; }
 
-        // Saves the rollValue
+        /** \brief Saves the rollValue*/
         public int RollValue { get; private set; }
 
         /// <summary>
@@ -141,7 +150,7 @@ namespace Royal_Game_of_Ur
                     CurrentTurn++;
                     CurrentPlayer = CurrentTurn % 2 == 0 ? PlayerOne : PlayerTwo;
                 }
-            } while (CurrentPlayer.NumPices != 0);
+            } while (CurrentPlayer.NumPieces != 0);
 
             render.RenderWinner();
         }
@@ -290,7 +299,9 @@ namespace Royal_Game_of_Ur
             }
             return false;
         }
-
+        /// <summary>
+        /// This initializes the map of the game.
+        /// </summary>
         private void InitializeMap()
         {
             for (int y = 0; y < MapHeight; y++)
@@ -317,3 +328,4 @@ namespace Royal_Game_of_Ur
         }
     }
 }
+ 
